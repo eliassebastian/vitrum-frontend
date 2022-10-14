@@ -18,3 +18,10 @@
     @content
   }
 }
+
+//touch screens
+@mixin touch-only {
+  @media only screen and (hover: none) and (pointer: coarse) {
+    @content
+  }
+}
