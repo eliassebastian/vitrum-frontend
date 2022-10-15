@@ -1,22 +1,39 @@
-import {FormEvent, ForwardedRef, forwardRef, useState} from "react";
+import {FormEvent, MouseEvent, useState, useRef} from "react";
 import styles from "./SearchBarInput.module.scss";
 
-const SearchBarInput = forwardRef((props, ref: ForwardedRef<HTMLInputElement>) => {
+const SearchBarInput = () => {
   const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   //listen to input and set state value
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     setInputValue(event.currentTarget.value);
   }
 
-  //clear input value
-  const clearValue = () => {
+  //clear input value and retain focus on input
+  const clearValue = (event: MouseEvent<HTMLButtonElement>) => {
+    if (!inputRef.current) return;
+    event.preventDefault();
+
     setInputValue("");
+    inputRef.current.focus();
+  }
+
+  const focusInput = (event: MouseEvent<HTMLButtonElement>) => {
+    if (!inputRef.current) return;
+    event.preventDefault();
+    inputRef.current.focus();
   }
 
   return (
     <div className={styles.wrapper}>
-      <button className={styles.search__button}>
+      <button
+        className={styles.search__button}
+        aria-label={"Search"}
+        type={"button"}
+        onClick={focusInput}
+        tabIndex={-1}
+      >
         <div>
           <span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -27,7 +44,7 @@ const SearchBarInput = forwardRef((props, ref: ForwardedRef<HTMLInputElement>) =
       </button>
       <div className={styles.input__box}>
         <div></div>
-        <input ref={ref}
+        <input ref={inputRef}
                className={styles.input}
                onInvalid={(event) => {event.preventDefault()}}
                required={true}
@@ -44,7 +61,13 @@ const SearchBarInput = forwardRef((props, ref: ForwardedRef<HTMLInputElement>) =
       </div>
       {
         inputValue.length > 0 &&
-        <button className={styles.clear__button} aria-label={"clear"} onClick={clearValue}>
+        <button
+          className={styles.clear__button}
+          aria-label={"Clear Search"}
+          type={"button"}
+          onClick={clearValue}
+          tabIndex={-1}
+        >
           <div>
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -56,6 +79,6 @@ const SearchBarInput = forwardRef((props, ref: ForwardedRef<HTMLInputElement>) =
       }
     </div>
   )
-})
+}
 
 export default SearchBarInput
