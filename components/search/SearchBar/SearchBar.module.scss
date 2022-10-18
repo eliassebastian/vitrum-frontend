@@ -7,11 +7,13 @@
 }
 
 .form {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 736px;
-  overflow: hidden;
-  width: auto;
+  @media only screen and (hover: none) and (pointer: coarse) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 736px;
+    overflow: hidden;
+    width: auto;
+  }
 }
 
 .inner__container {

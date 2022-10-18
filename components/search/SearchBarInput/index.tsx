@@ -24,7 +24,7 @@ const SearchBarInput = (props: { onBlur: () => void; onFocus: () => void; focuse
   const clearValue = (event: MouseEvent<HTMLButtonElement>) => {
     if (!inputRef.current) return;
     setEmptyState(true);
-    inputRef.current.focus();
+    inputRef.current.focus({preventScroll: true});
     inputRef.current.value = "";
   }
 
