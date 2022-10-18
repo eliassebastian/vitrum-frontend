@@ -9,7 +9,7 @@ const SearchBar = () => {
   const onFocus = () => {
     if (!ref.current || !window.matchMedia("(hover:none), (pointer:coarse)").matches) return
     setFocused(true);
-    ref.current.scrollTop = 0;
+    window.scrollTo(0,0);
   }
 
   const onBlur = () => {
