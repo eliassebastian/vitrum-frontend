@@ -18,7 +18,7 @@ const SearchBar = () => {
 
   return (
     <div className={styles.container}>
-      <form action={"/search"} role={"search"} method={"GET"}>
+      <form action={"/search"} role={"search"} method={"GET"} className={styles.form}>
         <div>
           <div ref={ref} className={`${focused ? styles.inner__container__focus : styles.inner__container}`}>
             <div className={`${styles.input__wrapper} ${focused ? styles.input__wrapper__focus : ''}`}>
