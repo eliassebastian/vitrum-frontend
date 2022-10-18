@@ -20,7 +20,7 @@ const SearchBar = () => {
     <div className={styles.container}>
       <form action={"/search"} role={"search"} method={"GET"}>
         <div>
-          <div ref={ref} className={`${styles.inner__container} ${focused ? styles.inner__container__focus : ''}`}>
+          <div ref={ref} className={`${focused ? styles.inner__container__focus : styles.inner__container}`}>
             <div className={`${styles.input__wrapper} ${focused ? styles.input__wrapper__focus : ''}`}>
               <SearchBarInput onBlur={onBlur} onFocus={onFocus} focused={focused}/>
             </div>

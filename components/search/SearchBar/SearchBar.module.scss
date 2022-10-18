@@ -23,6 +23,7 @@
 .inner__container__focus {
   @media only screen and (hover: none) and (pointer: coarse) {
     position: fixed;
+    background: none;
     top: 0;
     left: 0;
     width: 100%;
