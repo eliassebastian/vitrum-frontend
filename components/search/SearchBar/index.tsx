@@ -9,7 +9,6 @@ const SearchBar = () => {
   const onFocus = () => {
     if (!ref.current || !window.matchMedia("(hover:none), (pointer:coarse)").matches) return
     setFocused(true);
-    window.scrollTo(0,0);
   }
 
   const onBlur = () => {
@@ -24,6 +23,9 @@ const SearchBar = () => {
           <div ref={ref} className={`${focused ? styles.inner__container__focus : styles.inner__container}`}>
             <div className={`${styles.input__wrapper} ${focused ? styles.input__wrapper__focus : ''}`}>
               <SearchBarInput onBlur={onBlur} onFocus={onFocus} focused={focused}/>
+              <section style={{display: !focused ? "none" : "block"}} className={styles.section__mobile}>
+
+              </section>
             </div>
           </div>
         </div>
