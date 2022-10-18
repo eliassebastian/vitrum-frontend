@@ -22,6 +22,7 @@ body {
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior: contain;
 }
 
 img, picture, video, canvas, svg {
