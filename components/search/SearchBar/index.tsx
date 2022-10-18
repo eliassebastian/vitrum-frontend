@@ -3,12 +3,13 @@ import {useRef, useState} from "react";
 import SearchBarInput from "../SearchBarInput";
 
 const SearchBar = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [focused, setFocused] = useState(false);
 
   const onFocus = () => {
     if (!ref.current || !window.matchMedia("(hover:none), (pointer:coarse)").matches) return
     setFocused(true);
+    ref.current.scrollTop = 0;
   }
 
   const onBlur = () => {
