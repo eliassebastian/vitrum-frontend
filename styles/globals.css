@@ -13,16 +13,14 @@
 html, body {
   background-color: #2b2b2b;
   overflow: hidden;
+  position: fixed;
   height: 100%;
+  width: 100%;
 }
 
 body {
   line-height: 1.5;
-  position: fixed;
-  height: 100%;
-  width: 100%;
   -webkit-font-smoothing: antialiased;
-  overscroll-behavior: contain;
 }
 
 img, picture, video, canvas, svg {
