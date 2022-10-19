@@ -1,5 +1,9 @@
 :root {
-  --backgroundcolor: #2A6390;
+  --backgroundcolor: #0C243C;
+  --backgroundcoloraccent: #133559;
+  --backgroundcoloraccentone: #18385e;
+  --forecolor: #C9D1D5;
+  --graycolor: #7E8C9C;
 }
 
 *, *::before, *::after {
