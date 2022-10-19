@@ -4,6 +4,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import SearchBar from "../components/search/SearchBar";
 import SearchBarNew from "../components/search/SearchBarNew";
+import HeaderHome from "../components/header/HeaderHome";
+import FooterHome from "../components/footer/FooterHome";
 
 const Home: NextPage = () => {
   return (
@@ -14,9 +16,11 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <HeaderHome/>
       <main className={styles.main}>
         <SearchBarNew/>
       </main>
+      <FooterHome/>
     </div>
   )
 }
