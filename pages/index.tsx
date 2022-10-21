@@ -1,11 +1,9 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import SearchBar from "../components/search/SearchBar";
+import type { NextPage } from 'next';
+import Head from 'next/head';
 import SearchBarNew from "../components/search/SearchBar";
 import HeaderHome from "../components/header/HeaderHome";
 import FooterHome from "../components/footer/FooterHome";
+import styles from '../styles/Home.module.scss';
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +16,9 @@ const Home: NextPage = () => {
       </Head>
       <HeaderHome/>
       <main className={styles.main}>
-        <SearchBarNew/>
+        <div className={styles.wrapper}>
+          <SearchBarNew/>
+        </div>
       </main>
       <FooterHome/>
     </div>
