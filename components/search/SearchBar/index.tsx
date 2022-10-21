@@ -1,10 +1,12 @@
 import styles from "./SearchBar.module.scss";
 import {FormEvent, useRef, useState} from "react";
+import { useRouter } from "next/router";
 
 const SearchBarNew = () => {
   const [focused, setFocused] = useState(false);
   const [isEmpty, setEmptyState] = useState(true);
   const ref = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
@@ -43,8 +45,25 @@ const SearchBarNew = () => {
     ref.current.value = "";
   }
 
+  const onSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    if (!ref.current) return false
+
+    const regPatt = /reddit\.com\/r\/[^\/]+\/comments\/([^\/]{6,})\//;
+    const url = ref.current.value;
+
+    if (!regPatt.test(url)) return false;
+    if (!url.includes("r/wallstreetbets")) return false; 
+    
+    const id = regPatt.exec(url);
+    if (!id || id.length === 0) return false
+
+    router.push({ pathname: "/search", query: {q: id[1]}});
+    return true
+  }
+
   return (
-    <form className={`${ focused ? styles.form__focused : styles.form }`} action={"/search"} role={"search"} method={"GET"}>
+    <form onSubmit={(event: FormEvent) => onSubmit(event)} className={`${ focused ? styles.form__focused : styles.form }`} action={"/search"} role={"search"} method={"GET"}>
       <div className={`${ focused ? styles.wrapper__focused : styles.wrapper }`}>
         {
           !focused &&
