@@ -18,6 +18,16 @@
   overflow: hidden;
 }
 
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  @media only screen and (pointer: coarse) and (hover: none) {
+    padding: 1rem;
+  }
+}
+
 .footer {
   display: flex;
   flex: 1;
