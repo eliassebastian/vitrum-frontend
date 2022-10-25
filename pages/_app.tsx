@@ -13,7 +13,11 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
-const client =  new QueryClient();
+const client =  new QueryClient({defaultOptions: {
+  queries: {
+    refetchOnWindowFocus: false
+  }
+}});
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
