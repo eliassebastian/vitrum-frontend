@@ -1,8 +1,7 @@
 const timeAgo = (input: number) => {
   const date = new Date(input);
   const formatter = new Intl.RelativeTimeFormat('en');
-
-  const ranges = {
+  const ranges: {[key: string]: number} = {
     years: 3600 * 24 * 365,
     months: 3600 * 24 * 30,
     weeks: 3600 * 24 * 7,
@@ -17,7 +16,7 @@ const timeAgo = (input: number) => {
   for (let key in ranges) {
     if (ranges[key] < Math.abs(secondsElapsed)) {
       const delta = secondsElapsed / ranges[key];
-      return formatter.format(Math.round(delta), key);
+      return formatter.format(Math.round(delta), key as Intl.RelativeTimeFormatUnit);
     }
   }
 }
