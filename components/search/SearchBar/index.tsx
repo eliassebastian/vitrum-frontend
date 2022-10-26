@@ -52,6 +52,7 @@ const SearchBarNew = () => {
     const regPatt = /reddit\.com\/r\/[^\/]+\/comments\/([^\/]{6,})\//;
     const url = ref.current.value;
 
+    //TODO: ui/ux error handling
     if (!regPatt.test(url)) return false;
     if (!url.includes("r/wallstreetbets")) return false; 
     

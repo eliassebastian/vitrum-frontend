@@ -1,10 +1,16 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import type { ReactElement } from "react";
 import SearchLayout from "../../components/layout/SearchLayout";
+import SearchDefault from "../../components/search/SearchDefault";
+import SearchNew from "../../components/search/SearchNew";
 import type { NextPageWithLayout } from '../_app';
 import styles from "./Search.module.scss";
 
 const Search: NextPageWithLayout = () => {
+  const router = useRouter();
+  const {q}: {q?: string | undefined} = router.query;
+
   return (
     <>
     <Head>
@@ -14,7 +20,10 @@ const Search: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
     </Head>
     <main className={styles.page}>
-
+      <div className={styles.container}>
+        {typeof q === 'undefined' && <SearchDefault/>}
+        {(typeof q !== 'undefined' && q.length !== 0) && <SearchNew id={q}/>}
+      </div>
     </main>
     </>
   )
