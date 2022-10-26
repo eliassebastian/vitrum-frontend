@@ -30,11 +30,11 @@ const SearchPreview = ({ thumbnail = "", title, author, permalink, time, comment
                 </div>
                 <div className={styles.info__wrapper}>
                     <div className={styles.details}>
-                        <a href={`https://www.reddit.com/user/${author}/`} target="_blank">{`u/${author}`}</a>
+                        <a href={`https://www.reddit.com/user/${author}/`} target="_blank" rel="noreferrer">{`u/${author}`}</a>
                         <span>·</span>
                         <span>{formatTime}</span>
                     </div>
-                    <a className={styles.title} href={permalink} target="_blank">{title}</a>
+                    <a className={styles.title} href={permalink} target="_blank" rel="noreferrer">{title}</a>
                     <div className={styles.grid__wrapper}>
 
                     </div>
