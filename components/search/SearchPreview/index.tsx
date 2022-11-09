@@ -1,5 +1,5 @@
 import styles from "./SearchPreview.module.scss";
-import Image from "next/future/image";
+import Image from "next/image";
 import { timeAgo } from "../../../utils/time/formatTime";
 
 interface SearchPreviewProps {
