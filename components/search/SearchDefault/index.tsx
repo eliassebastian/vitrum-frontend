@@ -1,4 +1,3 @@
-
 import styles from "./SearchDefault.module.scss";
 
 const SearchDefault = () => {

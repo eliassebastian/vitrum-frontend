@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import type { ReactElement } from "react";
-import SearchLayout from "../../components/layout/SearchLayout";
-import SearchDefault from "../../components/search/SearchDefault";
-import SearchNew from "../../components/search/SearchNew";
+import SearchLayout from "../../layout/SearchLayout";
+import SearchDefault from "../../search/SearchDefault";
+import SearchNew from "../../search/SearchNew";
 import type { NextPageWithLayout } from '../_app';
 import styles from "./Search.module.scss";
 

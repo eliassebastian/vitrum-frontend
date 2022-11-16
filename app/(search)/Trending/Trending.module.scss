@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    position: sticky;
+    top: 70px;
+    flex: 1;
+    max-width: 312px;
+    height: 40vw;
+    border-radius: 10px;
+    background-color: var(--backgroundcolor);
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
+}

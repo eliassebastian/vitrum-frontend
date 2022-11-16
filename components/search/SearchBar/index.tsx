@@ -1,25 +1,20 @@
+'use client';
+
 import styles from "./SearchBar.module.scss";
-import {FormEvent, useRef, useState} from "react";
-import { useRouter } from "next/router";
+import { type FormEvent, useRef, useState, useEffect, useLayoutEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SearchBarNew = () => {
-  const [focused, setFocused] = useState(false);
-  const [isEmpty, setEmptyState] = useState(true);
-  const ref = useRef<HTMLInputElement>(null);
   const router = useRouter();
+  const searchParams = useSearchParams().get("q");
+
+  const [searchValue, setSearchValue] = useState("");
+  const [focused, setFocused] = useState(false);
+  const ref = useRef<HTMLInputElement>(null);
 
   const handleChange = (event: FormEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
-
-    if (value.length > 0 && isEmpty) {
-      setEmptyState(false)
-      return
-    }
-
-    if (value.length === 0 && !isEmpty) {
-      setEmptyState(true)
-      return
-    }
+    setSearchValue(value);
   }
 
   const onFocus = (event: FormEvent) => {
@@ -40,9 +35,8 @@ const SearchBarNew = () => {
 
   const clearValue = () => {
     if (!ref.current) return;
-    setEmptyState(true);
+    setSearchValue("");
     ref.current.focus({preventScroll: true});
-    ref.current.value = "";
   }
 
   const onSubmit = (event: FormEvent) => {
@@ -50,7 +44,7 @@ const SearchBarNew = () => {
     if (!ref.current) return false
 
     const regPatt = /reddit\.com\/r\/[^\/]+\/comments\/([^\/]{6,})\//;
-    const url = ref.current.value;
+    const url = searchValue;
 
     //TODO: ui/ux error handling
     if (!regPatt.test(url)) return false;
@@ -59,9 +53,15 @@ const SearchBarNew = () => {
     const id = regPatt.exec(url);
     if (!id || id.length === 0) return false
 
-    router.push({ pathname: "/search", query: {q: id[1]}});
+    router.push(`/search?q=${id[1]}`);
     return true
   }
+
+  useLayoutEffect(() => {
+    if (searchParams) {
+      setSearchValue(searchParams);
+    }
+  }, [searchParams]);
 
   return (
     <form onSubmit={(event: FormEvent) => onSubmit(event)} className={`${ focused ? styles.form__focused : styles.form }`} action={"/search"} role={"search"} method={"GET"}>
@@ -107,14 +107,15 @@ const SearchBarNew = () => {
           type={"text"}
           autoComplete={"off"}
           autoCorrect={"off"}
-          placeholder={"Reddit URL"}
+          placeholder={"Full Reddit URL"}
           spellCheck={"false"}
+          value={searchValue}
           onChange={handleChange}
           onPointerDown={onFocus}
         />
 
         {
-          !isEmpty &&
+          searchValue.length > 0 &&
           <button
             className={styles.clear__button}
             aria-label={"Clear Search"}

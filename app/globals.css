@@ -4,6 +4,7 @@
   --backgroundcolor-accentone: #18385e;
   --forecolor: #C9D1D5;
   --graycolor: #7E8C9C;
+  --interfont: var(--font-inter);
 }
 
 *, *::before, *::after {
@@ -15,10 +16,12 @@
 }
 
 html, body {
-  background-color: #2b2b2b;
+  background-color: var(--backgroundcolor-accentone);
   overflow: hidden;
+  display: relative;
   position: fixed;
   height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -55,7 +58,7 @@ a {
   isolation: isolate;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -63,4 +66,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */
