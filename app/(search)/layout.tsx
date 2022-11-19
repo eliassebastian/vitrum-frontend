@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import SearchBarNew from "../../components/search/SearchBar";
+import SearchBar from "../../components/search/SearchBar";
 import Trending from "./Trending";
 
 export default function SearchLayout({children}: {children: ReactNode}) {
@@ -13,7 +13,7 @@ export default function SearchLayout({children}: {children: ReactNode}) {
                         VITRUM
                     </Link>
                     <div className={styles.searchbar__wrapper}>
-                        <SearchBarNew/>
+                        <SearchBar/>
                     </div>
                 </div>
                 <div className={styles.header__right}>

@@ -4,7 +4,7 @@ import styles from "./SearchBar.module.scss";
 import { type FormEvent, useRef, useState, useEffect, useLayoutEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const SearchBarNew = () => {
+const SearchBar = () => {
   const router = useRouter();
   const searchParams = useSearchParams().get("q");
 
@@ -138,4 +138,4 @@ const SearchBarNew = () => {
   )
 }
 
-export default SearchBarNew
+export default SearchBar;
