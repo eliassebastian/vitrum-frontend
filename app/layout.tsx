@@ -1,6 +1,6 @@
 import "./globals.css";
 import { inter } from "../fonts/inter";
-import MobileHeader from "./MobileHeader";
+import MobileHeader from "../components/MobileHeader";
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (

@@ -5,7 +5,6 @@ import { useState } from "react";
 import styles from "./MobileHeader.module.scss";
 
 const MobileHeader = () => {
-
     const [isNavOpen, setNavOpen] = useState(false);
 
     return (
