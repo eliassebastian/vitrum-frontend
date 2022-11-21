@@ -9,8 +9,10 @@ import styles from "./SearchResultItem.module.scss";
 
 const SearchResultItem = ( props: RedditPost ) => {
 
-    if (props.thumbnail === "" || props.thumbnail === "default") {
-        props.thumbnail = "/wsb_icon.png";
+    let defaultImage = props.thumbnail;
+
+    if (props.thumbnail === "" || props.thumbnail.search("v.redd.it") !== -1 || props.thumbnail === "default") {
+        defaultImage = "/wsb_icon.png";
     }
 
     const formatTime = timeAgo(props.time * 1000);
@@ -41,7 +43,7 @@ const SearchResultItem = ( props: RedditPost ) => {
             {/* Image */}
             <div className={styles.post__thumbnail__wrapper}>
                 <Link href={props.thumbnail} target={"_blank"} rel={"norefferer"}>
-                    <img loading={"lazy"} src={props.thumbnail} alt="post thumbnail"/>
+                    <img loading={"lazy"} src={defaultImage} alt="post thumbnail"/>
                 </Link>
             </div>
             {/* Icons and Data */}
