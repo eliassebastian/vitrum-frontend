@@ -11,7 +11,10 @@ const SearchResultItem = ( props: RedditPost ) => {
 
     let defaultImage = props.thumbnail;
 
-    if (props.thumbnail === "" || props.thumbnail.search("v.redd.it") !== -1 || props.thumbnail === "default") {
+    if (props.thumbnail === "" || 
+        props.thumbnail.search("www.reddit.com") !== -1 || 
+        props.thumbnail.search("v.redd.it") !== -1 || 
+        props.thumbnail === "default") {
         defaultImage = "/wsb_icon.png";
     }
 

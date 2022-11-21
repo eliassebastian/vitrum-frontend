@@ -110,7 +110,11 @@
 }
 
 .divider {
-    border-top: 0.5px solid var(--graycolor);
-    width: 80%;
+    border-top: 0.75px solid var(--graycolor);
+    width: calc(100% - 2rem);
     margin: 0 auto;
+
+    @media only screen and (min-width: 641px) {
+        width: calc(100% - 4rem);
+    }
 }
