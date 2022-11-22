@@ -9,13 +9,10 @@ import styles from "./SearchResultItem.module.scss";
 
 const SearchResultItem = ( props: RedditPost ) => {
 
-    let defaultImage = props.thumbnail;
+    let defaultImage = "/wsb_icon.png";
 
-    if (props.thumbnail === "" || 
-        props.thumbnail.search("www.reddit.com") !== -1 || 
-        props.thumbnail.search("v.redd.it") !== -1 || 
-        props.thumbnail === "default") {
-        defaultImage = "/wsb_icon.png";
+    if (props.thumbnail.search("i.redd.it") > -1) {
+        defaultImage = props.thumbnail;
     }
 
     const formatTime = timeAgo(props.time * 1000);
