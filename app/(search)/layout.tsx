@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import SearchBar from "../../components/search/SearchBar";
 import Trending from "./Trending";
+import Footer from "../(default)/Footer";
 
 export default function SearchLayout({children}: {children: ReactNode}) {
     return (
@@ -32,9 +33,7 @@ export default function SearchLayout({children}: {children: ReactNode}) {
                     <Trending/>
                 </div>
             </main>
-            <footer>
-
-            </footer>
+            <Footer/>
         </div>
     )
 }
