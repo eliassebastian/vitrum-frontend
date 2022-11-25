@@ -6,12 +6,13 @@
         top: 0;
         left: 0;
         width: 100vw;
+        height: 55px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
         background-color: var(--backgroundcolor-accentone);
         z-index: 10;
-        padding: 1.6rem 2rem;
+        padding: 0 2rem;
         color: var(--forecolor);
         //border-bottom: 1px solid var(--graycolor);
     }
@@ -39,16 +40,14 @@
 
 .home__link {
     font-family: var(--interfont);
-    font-variation-settings: 'wght' 900, 'slnt' -10;
-    font-weight: 900;
-    font-style: italic;
+    font-variation-settings: 'wght' 900, 'slnt' -5;
     font-size: 1.4rem;
 }
 
 .nav__links {
     a {
         font-family: var(--interfont);
-        font-variation-settings: 'wght' 400;
+        font-variation-settings: 'wght' 500;
         font-size: 1rem;
         transition: color 200ms ease-in-out;
 
