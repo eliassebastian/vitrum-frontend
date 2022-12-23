@@ -1,18 +1,20 @@
 .page__container {
-    display: block;
+    display: flex;
     position: absolute;
+    flex-direction: column;
     top: 0;
     left: 0;
-    overflow-y: auto;
     width: 100vw;
-    height: 100%;
+    //height: 100%;
     min-height: 100%;
 }
 
 .main {
-    position: relative;
-
+    // position: flex;
+    display: flex;
+    flex: 1;
     min-height: 100%;
+    position: relative;
     width: 100vw;
     padding: 120px 1rem 0 1rem;
 
@@ -26,6 +28,7 @@
     position: relative;
     display: flex;
     flex-direction: row;
+    flex: 1;
     justify-content: center;
     gap: 2rem;
 }
@@ -39,7 +42,7 @@
 
     @media only screen and (min-width: 768px) {
         max-width: 640px;
-        flex: 1 1;
+        flex: 1;
     }
 }
 
