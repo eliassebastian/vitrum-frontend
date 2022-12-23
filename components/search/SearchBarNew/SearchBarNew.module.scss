@@ -139,6 +139,10 @@
     display: flex;
     position: relative;
     background-color: var(--backgroundcolor);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
     @media only screen and (pointer: coarse) and (pointer: coarse) {
         display: none;
@@ -147,12 +151,20 @@
 
 .select {
     height: 60px;
+    line-height: 60px;
+    top: -1px;
+    left: 0;
+    font-family: var(--interfont);
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
     width: 100%;
     display: block;
     position: absolute;
-    inset: 0;
     opacity: 0;
     visibility: visible;
+    background: none;
 }
 
 .left__wrapper {
