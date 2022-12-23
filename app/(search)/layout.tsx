@@ -4,6 +4,7 @@ import Link from "next/link";
 import SearchBar from "../../components/search/SearchBar";
 import Trending from "./Trending";
 import Footer from "../(default)/Footer";
+import SearchBarNew from "../../components/search/SearchBarNew";
 
 export default function SearchLayout({children}: {children: ReactNode}) {
     return (
@@ -13,8 +14,10 @@ export default function SearchLayout({children}: {children: ReactNode}) {
                     <Link href={"/"} className={styles.home__link}>
                         VITRUM
                     </Link>
+                </div>
+                <div className={styles.header__center}>
                     <div className={styles.searchbar__wrapper}>
-                        <SearchBar/>
+                        <SearchBarNew/>
                     </div>
                 </div>
                 <div className={styles.header__right}>
