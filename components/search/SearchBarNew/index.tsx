@@ -40,8 +40,9 @@ const SearchBarNew = () => {
     }
     
     const clearValue = () => {
-        if (!inputRef.current) return console.log("test");
+        if (!inputRef.current) return;
         setInputValue("");
+        inputRef.current.focus({preventScroll: true});
     }
 
     return (
