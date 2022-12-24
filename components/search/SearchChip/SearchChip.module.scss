@@ -1,0 +1,31 @@
+.chip__container {
+    height: 45px;
+    min-width: 48px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.chip {
+    background-color: rgba(255,255,255,0.1);
+    font-family: var(--font-inter);
+    color: var(--forecolor);
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0 1rem;
+    border: 0;
+    margin-right: 0.5rem;
+}
+
+.chip__selected {
+    background-color: var(--forecolor);
+    font-family: var(--font-inter);
+    color: #202124;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0 1rem;
+    border: 0;
+    margin-right: 0.5rem; 
+}
