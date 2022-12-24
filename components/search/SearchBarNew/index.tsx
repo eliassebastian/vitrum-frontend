@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useCallback, useRef, useState } from "react";
+import SearchChip from "../SearchChip";
 import styles from "./SearchBarNew.module.scss";
 
 const SearchBarNew = () => {
@@ -11,6 +12,8 @@ const SearchBarNew = () => {
 
     const selectRef = useRef<HTMLSelectElement>(null);
     const [ selected, setSelected ] = useState("query");
+
+    console.log(selected);
 
     const onSelectChange = useCallback(() => {
         const data = selectRef.current?.value;
@@ -60,16 +63,9 @@ const SearchBarNew = () => {
                             </div>
                         </div>
                         {/* <div className={styles.query__divider}></div> */}
-                        <div>
-                            <div className={`${styles.query__chip__selected} ${styles.query__container}`}>
-                                <span>Query</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div className={`${styles.query__chip} ${styles.query__container}`}>
-                                <span>Reddit</span>
-                            </div>
-                        </div>
+                        <SearchChip title={"Query"} setSelected={setSelected} selected={ "query" == selected } />
+                        <SearchChip title={"Reddit"} setSelected={setSelected} selected={ "reddit" == selected } />
+                        <SearchChip title={"Test"} setSelected={setSelected} selected={ "test" == selected } />
                     </div>
                 </div>
             }
@@ -135,6 +131,7 @@ const SearchBarNew = () => {
                     value={inputValue}
                     onChange={onInputChange}
                     onPointerDown={onFocus}
+                    aria-label={"Search"}
                     >
                     </input>
                     {

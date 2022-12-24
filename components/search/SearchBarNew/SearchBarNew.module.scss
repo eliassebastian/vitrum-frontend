@@ -35,6 +35,8 @@
     overflow-x: auto;
     overflow-y: hidden;
     height: 60px;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
 
     &::-webkit-scrollbar {
         display: none;
@@ -58,7 +60,7 @@
 .query__title {
 
     //background-color: var(--backgroundcolor);
-    padding: 0 1rem;
+    padding-right: 1rem;
 
     svg {
         display: inline-block;
