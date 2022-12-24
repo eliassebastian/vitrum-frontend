@@ -13,8 +13,6 @@ const SearchBarNew = () => {
     const selectRef = useRef<HTMLSelectElement>(null);
     const [ selected, setSelected ] = useState("query");
 
-    console.log(selected);
-
     const onSelectChange = useCallback(() => {
         const data = selectRef.current?.value;
         if (!data) return
@@ -65,7 +63,6 @@ const SearchBarNew = () => {
                         {/* <div className={styles.query__divider}></div> */}
                         <SearchChip title={"Query"} setSelected={setSelected} selected={ "query" == selected } />
                         <SearchChip title={"Reddit"} setSelected={setSelected} selected={ "reddit" == selected } />
-                        <SearchChip title={"Test"} setSelected={setSelected} selected={ "test" == selected } />
                     </div>
                 </div>
             }
