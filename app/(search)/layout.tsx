@@ -33,7 +33,6 @@ export default function SearchLayout({children}: {children: ReactNode}) {
                     <div className={styles.search__wrapper}>
                         {children}
                     </div>
-                    <Trending/>
                 </div>
             </main>
             <Footer/>
