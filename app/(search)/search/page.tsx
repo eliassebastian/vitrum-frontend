@@ -1,5 +1,8 @@
+import { Suspense } from "react";
 import type { RedditPost } from "../../../types/RedditPost";
+import SearchEmpty from "./SearchEmpty";
 import styles from "./SearchPage.module.scss";
+import SearchRedditSentimentLoading from "./SearchRedditSentimentLoading";
 import SearchResultItem from "./SearchResultItem";
 
 async function getRedditData(id: string) {
@@ -32,23 +35,42 @@ async function getRedditData(id: string) {
         upvotes: post.ups,
         comments: post.num_comments,
         ratio: post.upvote_ratio    
-    } as RedditPost;
+    } satisfies RedditPost;
 }
 
-export default async function Page({ searchParams }: { searchParams: { q: string } }) {
+async function getRedditSQLData(id: string) {
+    
+}
+
+export default async function Page({ searchParams }: { searchParams: { t: string, q: string } }) {
     let results
 
-    if (typeof searchParams.q !== 'undefined') {
+    if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
         results = await getRedditData(searchParams.q) as RedditPost;
+    }
+
+    if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'query') {
+        results = await getRedditSQLData(searchParams.q);
     }
 
     return (
         <div className={styles.container}>
             {
-                typeof results !== 'undefined' && <SearchResultItem {...results}/>
+                typeof results !== 'undefined' && searchParams.t === 'reddit' &&
+                <>
+                    <SearchResultItem {...results}/>
+                    {/* <Suspense fallback={<SearchRedditSentimentLoading/>}>
+                        
+                    </Suspense> */}
+                    <SearchRedditSentimentLoading/>
+                </> 
             }
             {
-                typeof results === 'undefined' && <h4>Paste Full Reddit URL To Begin</h4>
+                typeof results !== 'undefined' && searchParams.t === 'query' && 
+                <SearchResultItem {...results}/>
+            }
+            {
+                typeof results === 'undefined' && <SearchEmpty/>
             }
         </div>
     )
