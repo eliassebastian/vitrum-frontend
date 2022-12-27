@@ -1,10 +1,12 @@
 'use client';
 
+import { useRouter } from "next/navigation";
 import { FormEvent, useCallback, useRef, useState } from "react";
 import SearchChip from "../SearchChip";
 import styles from "./SearchBarNew.module.scss";
 
 const SearchBarNew = () => {
+    const router = useRouter();
     const [ focused, setFocused ] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
@@ -46,6 +48,26 @@ const SearchBarNew = () => {
         inputRef.current.focus({preventScroll: true});
     }
 
+    const onSubmit = (event: FormEvent) => {
+        event.preventDefault();
+        if (!inputRef.current) return false
+    
+        const regPatt = /reddit\.com\/r\/[^\/]+\/comments\/([^\/]{6,})\//;
+        var url = inputValue;
+
+        if (selected === 'reddit') {
+            if (!regPatt.test(url)) return false;
+            if (!url.includes("r/wallstreetbets")) return false; 
+
+            const id = regPatt.exec(url);
+            if (!id || id.length === 0) return false
+            url = id[1];
+        }
+    
+        router.push(`/search?t=${selected}&q=${url}`);
+        return true
+    }
+
     return (
         <div className={`${ focused ? styles.wrapper__focused : styles.wrapper }`}>
             {
@@ -66,7 +88,7 @@ const SearchBarNew = () => {
                     </div>
                 </div>
             }
-            <form className={`${ focused ? styles.form__focused : styles.form }`}>
+            <form onSubmit={onSubmit} className={`${ focused ? styles.form__focused : styles.form }`}>
                 {/* Select */}
                 <div className={styles.left}>
                     <button className={styles.left__wrapper}>
