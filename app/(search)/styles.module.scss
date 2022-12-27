@@ -13,13 +13,13 @@
     // position: flex;
     display: flex;
     flex: 1;
-    min-height: 100%;
+    min-height: 100vh;
     position: relative;
     width: 100vw;
-    padding: 120px 1rem 0 1rem;
+    padding: 125px 0.5rem 0 0.5rem;
 
     @media only screen and (min-width: 641px) {
-        padding: 70px 2rem 0 2rem;
+        padding: 80px 2rem 0 2rem;
     }
 }
 
@@ -41,8 +41,8 @@
     display: flex;
 
     @media only screen and (min-width: 768px) {
-        max-width: 640px;
-        flex: 1;
+        //max-width: 640px;
+        flex: 0 1 800px;
     }
 }
 
@@ -130,6 +130,11 @@
 
 .searchbar__wrapper {
     flex: 1;
+    margin-right: 5.5rem;
+
+    @media only screen and (max-width: 1023px) {
+        margin-right: 0;  
+    }
     // @media only screen and (pointer: coarse) and (hover: none) {
     //     display: flex;
     //     flex: none;
