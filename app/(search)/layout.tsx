@@ -2,7 +2,6 @@ import styles from "./styles.module.scss";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import SearchBar from "../../components/search/SearchBar";
-import Trending from "./Trending";
 import Footer from "../(default)/Footer";
 import SearchBarNew from "../../components/search/SearchBarNew";
 
