@@ -1,0 +1,21 @@
+.container {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    //z-index: 10;
+}
+
+.title {
+    font-family: var(--font-inter);
+    font-size: 5vw;
+    font-weight: bold;
+    color: var(--forecolor);
+    margin: 1rem auto 0 auto;
+
+    @media only screen and (min-width: 641px) {
+        font-size: 2rem;
+    }
+}
