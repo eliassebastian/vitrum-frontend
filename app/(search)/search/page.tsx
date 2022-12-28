@@ -35,7 +35,7 @@ async function getRedditData(id: string) {
         upvotes: post.ups,
         comments: post.num_comments,
         ratio: post.upvote_ratio    
-    } satisfies RedditPost;
+    } as RedditPost;
 }
 
 async function getRedditSQLData(id: string) {
