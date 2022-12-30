@@ -65,6 +65,7 @@ const SearchBarNew = () => {
         }
     
         router.push(`/search?t=${selected}&q=${url}`);
+        onBlur();
         return true
     }
 
