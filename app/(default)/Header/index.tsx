@@ -9,8 +9,8 @@ const DefaultHeader = () => {
                     VITRUM
                 </Link>
                 <nav className={styles.nav__links}>
-                    <Link href={"/about"}>
-                        About
+                    <Link href={"/trending"}>
+                        Trending
                     </Link>
                 </nav>
             </div>
