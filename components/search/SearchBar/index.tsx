@@ -114,6 +114,7 @@ const SearchBar = () => {
           onChange={handleChange}
           onPointerDown={onFocus}
           enterKeyHint={"search"}
+          maxLength={2048}
         />
 
         {
