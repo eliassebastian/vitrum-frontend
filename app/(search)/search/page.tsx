@@ -40,8 +40,8 @@ async function getRedditData(id: string) {
 }
 
 export default async function Page({ searchParams }: { searchParams: { t: string, q: string } }) {
-    const headersList = headers();
     const results = await getRedditData(searchParams.q) as RedditPost;
+    const headersList = headers();
 
     // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
     //     results = await getRedditData(searchParams.q) as RedditPost;
