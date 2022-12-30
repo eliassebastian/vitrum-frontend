@@ -107,11 +107,13 @@ const SearchBar = () => {
           type={"text"}
           autoComplete={"off"}
           autoCorrect={"off"}
+          autoCapitalize={"off"}
           placeholder={"Full Reddit URL"}
           spellCheck={"false"}
           value={searchValue}
           onChange={handleChange}
           onPointerDown={onFocus}
+          enterKeyHint={"search"}
         />
 
         {
