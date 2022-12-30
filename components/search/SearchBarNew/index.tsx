@@ -152,6 +152,8 @@ const SearchBarNew = () => {
                     onChange={onInputChange}
                     onPointerDown={onFocus}
                     aria-label={"Search"}
+                    enterKeyHint={"go"}
+                    maxLength={2048}
                     >
                     </input>
                     {
