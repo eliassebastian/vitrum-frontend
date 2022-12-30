@@ -45,15 +45,15 @@ async function getRedditSQLData(id: string) {
 }
 
 export default async function Page({ searchParams }: { searchParams: { t: string, q: string } }) {
-    let results
+    const results = await getRedditData(searchParams.q) as RedditPost;
 
-    if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
-        results = await getRedditData(searchParams.q) as RedditPost;
-    }
+    // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
+    //     results = await getRedditData(searchParams.q) as RedditPost;
+    // }
 
-    if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'query') {
-        results = await getRedditSQLData(searchParams.q);
-    }
+    // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'query') {
+    //     results = await getRedditSQLData(searchParams.q);
+    // }
 
     console.log(searchParams.q, searchParams.t);
 
