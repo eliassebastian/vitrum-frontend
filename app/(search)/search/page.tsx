@@ -7,7 +7,7 @@ import SearchResultItem from "./SearchResultItem";
 
 async function getRedditData(id: string) {
     //cache for 10 minutes before revalidating
-    const res = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`, { next: { revalidate: 600 }, cache: 'only-if-cached' });
+    const res = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`, { next: { revalidate: 600 }, cache: 'no-cache' });
 
     if (!res.ok) {
         throw new Error('Failed to fetch from Reddit Servers');
