@@ -50,23 +50,22 @@ const SearchBarNew = () => {
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
-        if (!inputRef.current) return false
+        if (!inputRef.current) return
     
         const regPatt = /reddit\.com\/r\/[^\/]+\/comments\/([^\/]{6,})\//;
         var url = inputValue;
 
         if (selected === 'reddit') {
-            if (!regPatt.test(url)) return false;
-            if (!url.includes("r/wallstreetbets")) return false; 
+            if (!regPatt.test(url)) return
+            if (!url.includes("r/wallstreetbets")) return
 
             const id = regPatt.exec(url);
-            if (!id || id.length === 0) return false
+            if (!id || id.length === 0) return
             url = id[1];
         }
-    
-        router.push(`/search?t=${selected}&q=${url}`);
+
         onBlur();
-        return true
+        router.push(`/search?t=${selected}&q=${url}`);
     }
 
     return (
