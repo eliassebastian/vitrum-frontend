@@ -53,15 +53,14 @@ export default async function Page({ searchParams }: { searchParams: { t: string
         results = await getRedditSQLData(searchParams.q);
     }
 
+    console.log(searchParams.q, searchParams.t);
+
     return (
         <div className={styles.container}>
             {
                 typeof results !== 'undefined' && searchParams.t === 'reddit' &&
                 <>
                     <SearchResultItem {...results}/>
-                    {/* <Suspense fallback={<SearchRedditSentimentLoading/>}>
-                        
-                    </Suspense> */}
                     <SearchRedditSentimentLoading/>
                 </> 
             }
