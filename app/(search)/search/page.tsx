@@ -7,6 +7,8 @@ import SearchResultItem from "./SearchResultItem";
 
 async function getRedditData(id: string) {
     //cache for 10 minutes before revalidating
+    console.log("get Reddit Data", id);
+
     const res = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`, { next: { revalidate: 600 } });
 
     if (!res.ok) {
@@ -35,7 +37,7 @@ async function getRedditData(id: string) {
         upvotes: post.ups,
         comments: post.num_comments,
         ratio: post.upvote_ratio    
-    } as RedditPost;
+    };
 }
 
 async function getRedditSQLData(id: string) {
