@@ -7,8 +7,6 @@ import SearchResultItem from "./SearchResultItem";
 
 async function getRedditData(id: string) {
     //cache for 10 minutes before revalidating
-    console.log("get Reddit Data", id);
-
     const res = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`, { next: { revalidate: 600 } });
 
     if (!res.ok) {
@@ -40,10 +38,6 @@ async function getRedditData(id: string) {
     };
 }
 
-async function getRedditSQLData(id: string) {
-    
-}
-
 export default async function Page({ searchParams }: { searchParams: { t: string, q: string } }) {
     const results = await getRedditData(searchParams.q) as RedditPost;
 
@@ -54,8 +48,6 @@ export default async function Page({ searchParams }: { searchParams: { t: string
     // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'query') {
     //     results = await getRedditSQLData(searchParams.q);
     // }
-
-    console.log(searchParams.q, searchParams.t);
 
     return (
         <div className={styles.container}>
