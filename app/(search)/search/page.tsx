@@ -70,9 +70,9 @@ export default async function Page({ searchParams }: { searchParams: { t: string
                 typeof results !== 'undefined' && searchParams.t === 'query' && 
                 <SearchResultItem {...results}/>
             }
-            {
+            {/* {
                 typeof results === 'undefined' && <SearchEmpty/>
-            }
+            } */}
         </div>
     )
     
