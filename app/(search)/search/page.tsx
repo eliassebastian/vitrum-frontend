@@ -4,10 +4,11 @@ import SearchEmpty from "./SearchEmpty";
 import styles from "./SearchPage.module.scss";
 import SearchRedditSentimentLoading from "./SearchRedditSentimentLoading";
 import SearchResultItem from "./SearchResultItem";
+import { headers } from 'next/headers';
 
 async function getRedditData(id: string) {
     //cache for 10 minutes before revalidating
-    const res = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`, { next: { revalidate: 600 }, cache: 'no-cache' });
+    const res = await fetch(`https://api.reddit.com/api/info/?id=t3_${id}`, { next: { revalidate: 600 } });
 
     if (!res.ok) {
         throw new Error('Failed to fetch from Reddit Servers');
@@ -39,6 +40,7 @@ async function getRedditData(id: string) {
 }
 
 export default async function Page({ searchParams }: { searchParams: { t: string, q: string } }) {
+    const headersList = headers();
     const results = await getRedditData(searchParams.q) as RedditPost;
 
     // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
