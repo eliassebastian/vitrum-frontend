@@ -40,12 +40,13 @@ async function getRedditData(id: string) {
 }
 
 export default async function Page({ searchParams }: { searchParams: { t: string, q: string } }) {
-    const results = await getRedditData(searchParams.q) as RedditPost;
     const headersList = headers();
 
-    // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
-    //     results = await getRedditData(searchParams.q) as RedditPost;
-    // }
+    var results
+
+    if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'reddit') {
+        results = await getRedditData(searchParams.q) as RedditPost;
+    }
 
     // if (typeof searchParams.q !== 'undefined' && typeof searchParams.t !== 'undefined' && searchParams.t === 'query') {
     //     results = await getRedditSQLData(searchParams.q);
@@ -64,9 +65,9 @@ export default async function Page({ searchParams }: { searchParams: { t: string
                 typeof results !== 'undefined' && searchParams.t === 'query' && 
                 <SearchResultItem {...results}/>
             }
-            {/* {
+            {
                 typeof results === 'undefined' && <SearchEmpty/>
-            } */}
+            }
         </div>
     )
     
