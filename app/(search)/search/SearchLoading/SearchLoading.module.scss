@@ -1,0 +1,105 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--backgroundcolor);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.animate {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.first__row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 1rem;
+    gap: 0.5rem;
+
+    @media only screen and (min-width: 641px) {
+        padding: 2rem;
+    }
+}
+
+.image {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background-color: var(--graycolor);
+    opacity: 0.5;
+
+    @media only screen and (min-width: 641px) {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+.data {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.short, .long {
+    height: 1rem;
+    border-radius: 15px;
+    background-color: var(--graycolor);
+    opacity: 0.5;
+}
+
+.short {
+    width: 50%;
+}
+
+.long {
+    width: 70%;
+}
+
+.image__placeholder {
+    width: 100%;
+    aspect-ratio: 1/0.75;
+    background-color: var(--graycolor);
+    opacity: 0.5;
+}
+
+.grid {
+    display: grid;
+    margin: 0 auto;
+    width: 80%;
+    place-items: center;
+    padding: 1rem 0;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+
+    div {
+        height: 1rem;
+        border-radius: 15px;
+        background-color: var(--graycolor);
+        opacity: 0.5;
+        width: 50%;
+    }
+
+    @media only screen and (min-width: 641px) {
+        padding: 1.5rem 0;
+    }
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: .7;
+    }
+
+    50% {
+        opacity: .45;
+    }
+}

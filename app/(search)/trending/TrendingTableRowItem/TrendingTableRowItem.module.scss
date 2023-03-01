@@ -1,0 +1,40 @@
+.center {
+    text-align: center;
+}
+
+.mobile {
+    display: none;
+
+    @media only screen and (min-width: 641px) {
+        display: table-cell;
+    }
+}
+
+.row {
+    //margin: 0 1rem;
+    td {
+        padding: 1rem 0.5rem;
+        border: none;
+
+        &:first-child {
+            padding: 1rem 0.5rem 1rem 2rem;
+        }
+    
+        &:last-child {
+            padding: 1rem 2rem 1rem 0.5rem;
+        }
+    }
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        background-color: var(--backgroundcolor-accent);
+    }
+}
+
+.up {
+    color: rgb(120, 198, 3);
+}
+
+.down {
+    color: rgb(224, 14, 14);
+}

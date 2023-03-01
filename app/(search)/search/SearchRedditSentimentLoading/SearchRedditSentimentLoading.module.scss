@@ -1,0 +1,17 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #051523;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.text {
+    font-family: var(--font-inter);
+    color:rgba(197, 197, 197, 1);
+    //text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.1rem;
+}

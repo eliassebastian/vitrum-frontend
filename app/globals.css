@@ -1,0 +1,68 @@
+:root {
+  --backgroundcolor: #0C243C;
+  --backgroundcolor-accent: #133559;
+  --backgroundcolor-accentone: #18385e;
+  --forecolor: #C9D1D5;
+  --graycolor: #7E8C9C;
+  --interfont: var(--font-inter);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html, body {
+  background: linear-gradient(90deg, var(--backgroundcolor) 0%, var(--backgroundcolor-accent) 100%);
+  overflow-y: auto;
+  display: relative;
+  position: fixed;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  all: unset;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */

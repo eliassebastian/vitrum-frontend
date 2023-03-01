@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  experimental: {
+    appDir: true
+  },
+  images: {
+    domains: ['a.thumbs.redditmedia.com', 'b.thumbs.redditmedia.com', 'i.redd.it']
+  }
 }
 
 module.exports = nextConfig

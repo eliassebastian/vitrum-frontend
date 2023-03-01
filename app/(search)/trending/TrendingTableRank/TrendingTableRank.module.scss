@@ -1,0 +1,55 @@
+
+.container {
+    font-family: var(--interfont);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    min-width: 55px;
+    min-height: 24px;
+}
+
+.new {
+    background-color: rgb(255, 255, 255);
+    color: rgb(29, 27, 27);
+    //padding: 0.25rem 0.5rem;
+    width: 100%;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.rank {
+    border-radius: 15px;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+
+        
+    span {
+        display: inline-block;
+        flex-grow: 0;
+    }
+
+    svg {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        flex-grow: 0;
+    }
+}
+
+.up {
+    color: rgb(65, 65, 65);
+    background-color: rgb(120, 198, 3);
+}
+
+.down {
+    color: rgb(39, 39, 39);
+    background-color: rgb(224, 14, 14);
+}
+
+.still {
+    background-color: rgb(238, 238, 238);
+    color: var(--backgroundcolor);
+}

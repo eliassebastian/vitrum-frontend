@@ -1,0 +1,27 @@
+//screens above 599px
+@mixin sm {
+  @media only screen and (min-width: 600px) {
+    @content
+  }
+};
+
+//screens above 799px (e.g. tablets)
+@mixin md {
+  @media only screen and (min-width: 800px) {
+    @content
+  }
+};
+
+//screens above 1999px (e.g. laptops, desktops)
+@mixin lg {
+  @media only screen and (min-width: 1200px) {
+    @content
+  }
+};
+
+//touch screens
+@mixin touch-only {
+  @media only screen and (hover: none) and (pointer: coarse) {
+    @content
+  }
+};
